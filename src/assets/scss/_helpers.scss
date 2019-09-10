@@ -1,0 +1,105 @@
+/**
+ * Color utility
+ */
+@each $k, $v in $map-all-colors {
+  .bg-#{$k},
+  %bg-#{$k} {
+    @include contrast($v);
+    &.bg-invert {
+      @include bg-invert($v);
+    }
+    &.bg-gradient {
+      @include bg-gradient-only($v);
+    }
+    &.bg-darker {
+      background-color: darken($v, 1);
+      &.bg-gradient {
+          @include bg-gradient-only(darken($v, 1))
+      }
+    }
+    > hr {
+      background-color: yiq($v);
+    }
+  }
+}
+
+/**
+ * Misc utility
+ */
+%box-shadow,
+.box-shadow {
+  box-shadow: 2px 2px 4px $dark;
+}
+
+%rounded, .rounded {
+  @include rounded;
+}
+
+/**
+ * Typography utility
+ */
+
+%txt,
+.txt {
+  &-tiny {
+    font-size: 0.8rem !important;
+  }
+  &-huge {
+    font-size: 5rem !important;
+  }
+  &-center {
+      text-align: center;
+  }
+  &-shadow {
+    text-shadow: 1px 1px 1px $dark;
+  }
+}
+
+%heading {
+  margin-bottom: 1rem;
+  font-family: $header-font-family;
+  font-weight: normal;
+  &.banger {
+    font-size: 120%;
+    font-family: 'Bangers', $header-font-family;
+  }
+}
+
+%paragraph {
+  margin-bottom: 0.5rem;
+}
+
+/**
+ * Spacing utility
+ */
+@include spread-directions('.m', margin, $map-scales);
+
+@each $k, $v in $map-breakpoints {
+  @include respond-after($k) {
+    @include spread-directions('.m', margin, $map-scales, -#{$k});
+  }
+}
+
+@include spread-directions('.p', padding, $map-scales);
+
+@each $k, $v in $map-breakpoints {
+  @include respond-after($k) {
+    @include spread-directions('.p', padding, $map-scales, -#{$k});
+  }
+}
+
+/**
+ * Sizing utility
+ */
+
+.height {
+    &-fill {
+        height: 100%;
+    }
+}
+
+.contained, %contained {
+    max-width: #{px2rem(768)}#{rem};
+    margin-left: auto;
+    margin-right: auto;
+}

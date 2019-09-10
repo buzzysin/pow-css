@@ -1,0 +1,6 @@
+.hero {
+    padding: 3rem;
+    @include rounded;
+    font-size: 1.2rem;
+    @extend %box-shadow;
+}

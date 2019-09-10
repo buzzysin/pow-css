@@ -1,0 +1,38 @@
+.nav {
+  display: flex;
+  align-items: center;
+
+  min-height: 3.5rem;
+
+  z-index: 10;
+
+  &-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  @extend %box-shadow;
+
+  &-block {
+    padding: 0.25rem 0.5rem;
+  }
+  &-branding {
+    font-weight: normal;
+    font-size: 1.5rem;
+    font-family: $header-font-family;
+  }
+
+  &-inner {
+    flex-grow: 1;
+
+    display: inherit;
+    align-items: center;
+
+    height: 100%;
+  }
+  &-content {
+    flex-grow: 1;
+    display: inherit;
+  }
+}

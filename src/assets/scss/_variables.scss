@@ -1,0 +1,92 @@
+/**
+ * Colors and theming
+ */
+$red: #ff3c38;
+$orange: #e67f0d;
+$yellow: #ffbe0b;
+$green: #06ba63;
+$blue: #3f88c5;
+$purple: #8338ec;
+
+$dark: #333;
+$light: #eee;
+
+$map-colors: () !default;
+
+$map-colors: map-merge($map-colors, (
+    red: $red,
+    orange: $orange,
+    yellow: $yellow,
+    green: $green,
+    blue: $blue,
+    purple: $purple
+));
+
+$primary: $red;
+$warning: $yellow;
+$error: $orange;
+$success: $green;
+$info: $blue;
+$secondary: $dark;
+
+$default: $light;
+
+
+$map-themes: () !default;
+
+$map-themes: map-merge($map-themes, (
+    primary: $primary,
+    warning: $warning,
+    error: $error,
+    success: $success,
+    info: $info,
+    secondary: $secondary,
+    default: $default,
+    dark: $dark,
+    light: $light,
+));
+
+$map-all-colors: () !default;
+
+$map-all-colors: map-merge($map-themes, $map-colors);
+
+/**
+ * Typography & Scaling
+ */
+$header-font-family: 'Montserrat', 'Roboto', Ubuntu, sans-serif;
+$regular-font-family: 'Roboto', Helvetica, Arial, sans-serif;
+
+$map-scales: () !default;
+
+$map-scales: map-merge($map-scales, (
+    auto: auto,
+    0: 0rem,
+    1: 1rem,
+    2: 2rem,
+    3: 3rem,
+    4: 4rem,
+    5: 5rem
+));
+
+
+/**
+ * Responsiveness
+ */
+
+$enable-responsive-text: true !default;
+
+$map-breakpoints: () !default;
+
+$map-breakpoints: map-merge($map-breakpoints, (
+    xs: 0rem,
+    sm: #{(576/16)}rem,
+    md: #{(768/16)}rem,
+    lg: #{(992/16)}rem,
+    xl: #{(1200/16)}rem,
+));
+
+@if($enable-responsive-text) {
+    html {
+        font-size: calc(0.9em + .2vw);
+    }
+}

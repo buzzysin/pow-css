@@ -1,0 +1,14 @@
+.section, %section {
+    margin: 3rem 0;
+    padding: 3rem 1rem;
+    &-sm {
+        margin: 1.5rem 0;
+    }
+    &-lg {
+        margin: 5rem 0;
+    }
+    &-fill {
+        height: 100vh;
+    }
+    @include bg-gradient-override;
+}

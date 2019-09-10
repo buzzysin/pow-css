@@ -1,0 +1,87 @@
+@mixin contrast($bg) {
+  color: yiq($bg);
+  background-color: $bg;
+}
+
+@mixin bg-invert($bg) {
+  color: $bg;
+  background-color: white;
+  border: 1px solid $bg;
+}
+
+@mixin bg-gradient-override {
+  @each $k, $v in $map-all-colors {
+    &.bg-#{$k} {
+      background: linear-gradient(to bottom left, $v, darken($v, .5));
+    }
+  }
+}
+
+@mixin bg-gradient-only($color) {
+  background: linear-gradient(to bottom left, $color, darken($color, .5));
+}
+
+@mixin hover-active-focus {
+  &:hover,
+  &:active,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin rounded {
+  border-radius: .25rem;
+}
+
+@mixin respond-after($at) {
+  @media screen and (min-width: #{breakpoint($at)}) {
+    @content;
+  }
+}
+
+@mixin respond-before($at) {
+  @media screen and (max-width: #{breakpoint($at)}) {
+    @content;
+  }
+}
+
+@mixin spread-directions($selector, $property, $value-map, $prefix: '') {
+  #{$selector} {
+    &l#{$prefix},
+    &x#{$prefix},
+    &#{$prefix} {
+      @each $name, $value in $value-map {
+        &-#{$name} {
+          #{$property}-left: $value;
+        }
+      }
+    }
+    &r#{$prefix},
+    &x#{$prefix},
+    &#{$prefix} {
+      @each $name, $value in $value-map {
+        &-#{$name} {
+          #{$property}-right: $value;
+        }
+      }
+    }
+    &t#{$prefix},
+    &y#{$prefix},
+    &#{$prefix} {
+      @each $name, $value in $value-map {
+        &-#{$name} {
+          #{$property}-top: $value;
+        }
+      }
+    }
+    &b#{$prefix},
+    &y#{$prefix},
+    &#{$prefix} {
+      @each $name, $value in $value-map {
+        &-#{$name} {
+          #{$property}-bottom: $value;
+        }
+      }
+    }
+  }
+}

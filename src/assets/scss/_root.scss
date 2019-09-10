@@ -1,0 +1,56 @@
+*,
+::before,
+::after {
+  box-sizing: inherit;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+:any-link {
+  text-decoration: unset;
+  color: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  line-height: 1.2;
+}
+
+body {
+  font-family: $regular-font-family;
+  font-size: 1rem;
+}
+
+hr {
+  background-color: $dark;
+  height: 1px;
+  margin: .5rem 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  @extend %heading;
+}
+
+p {
+  @extend %paragraph;
+}
+
+ul {
+    list-style: square;
+}
+
+ul > * {
+    margin-left: 2rem;
+}

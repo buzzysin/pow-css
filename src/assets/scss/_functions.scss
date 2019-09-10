@@ -1,0 +1,21 @@
+@function yiq($bg) {
+  $r: red($bg);
+  $g: green($bg);
+  $b: blue($bg);
+
+  $yiq: (($r*299) + ($g*587) + ($b*114))/1000;
+
+  @if ($yiq >= 156) {
+    @return $dark;
+  } @else {
+    @return white;
+  }
+}
+
+@function px2rem($px, $unit: false){
+  @return #{$px/16}#{if($unit, rem, '')};
+}
+
+@function breakpoint($point){
+  @return map-get($map-breakpoints, $point);
+}
